@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wab menu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:root {
+  --hamburger-color: #555;
+  --close-color: #444;
+  --li-border-color: #9999996e;
+  --yatay-cizgi: #949494;
+  --donen-oklar: #484848;
+  --menu-baslik-rengi: #555;
+  --menu-baslik-font: 1.2rem;
+  --menu-baslik-font-family: initial;
+  --menu-alt-baslik-rengi: #555;
+  --menu-alt-baslik-font: 1.2rem;
+  --menu-alt-baslik-font-family: initial;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.navigation {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+.navigation:hover span:nth-child(1) {
+  width: 35px;
+}
+.navigation:hover span:nth-child(2) {
+  width: 40px;
+}
+.navigation span {
+  width: 50px;
+  height: 3px;
+  background: var(--hamburger-color);
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.navigation.active span:nth-child(1) {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: rotate(-45deg) translate(-12px, 12px);
+          transform: rotate(-45deg) translate(-12px, 12px);
+  width: 55px;
+}
+.navigation.active span:nth-child(2) {
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+  opacity: 0;
+}
+.navigation.active span:nth-child(3) {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: rotate(45deg) translate(-12px, -12px);
+          transform: rotate(45deg) translate(-12px, -12px);
+  width: 55px;
+}
+.navigation .line1 {
+  width: 42px;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+.navigation .line2 {
+  width: 35px;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+@media  (max-width:576px) {}
+.hamburger {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.side-menu {
+  width: 0px;
+  height: 100vh;
+  position: absolute;
+  z-index: 10000;
+  right: 0;
+  overflow: hidden;
+  background: #f3f3f3;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+.side-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.side-menu ul li {
+  list-style: none;
+  width: 100%;
+  position: relative;
+  padding: 1rem 0;
+  border-top: 1px solid var(--li-border-color);
+  cursor: pointer;
+}
+.side-menu ul li a {
+  text-decoration: none;
+  color: var(--menu-baslik-rengi);
+  font-size: var(--menu-baslik-font);
+  font-family: var(--menu-baslik-font-family);
+  font-weight: 300;
+  padding-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.side-menu ul li .sub-menu {
+  max-height: 0px;
+  overflow: hidden;
+}
+.side-menu ul li .sub-menu li {
+  border: none;
+}
+.side-menu ul li .sub-menu li a {
+  color: var(--menu-alt-baslik-rengi);
+  font-size: var(--menu-alt-baslik-font);
+  font-family: var(--menu-alt-baslik-font-family);
+  display: block;
+  text-align: end;
+  padding-right: 15%;
+}
+.side-menu ul li .coret {
+  width: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  height: 24px;
+  color: var(--donen-oklar);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+.side-menu ul #erkek::after, .side-menu ul #kadin::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 75%;
+  background: var(--yatay-cizgi);
+  top: 15%;
+  right: 10%;
+}
+.closer {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 40px;
+  color: var(--close-color);
+}
+.closer span {
+  text-align: end;
+  display: block;
+  cursor: pointer;
+}
+.inner-padding {
+  padding: 3rem;
+}
+.hamburger-padding {
+  padding: 1rem 0;
+}
+.user-nav {
+  padding: 1rem 0;
+}
+.user-nav a {
+  padding-right: 1rem;
+}
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.d-flex a {
+  width: 32px;
+}
+.sub-menu-active {
+  max-height: 100000000px !important;
+}
+.rotate {
+  -webkit-transform: rotate(270deg) !important;
+          transform: rotate(270deg) !important;
+}
+.w-500 {
+  width: 500px;
+}
+</style>
+<body>
+    <div class="hamburger">
+        <div class="hamburger-padding">
+            <div class="navigation">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+        </div>
+        <div class="side-menu">
+            <div class="inner-padding">
+                <div class="closer">
+                    <span id="close-icon">✕</span>
+                </div>
+                <ul>
+                    <li><a href="">ANASAYFA</a></li>
+                    <li><a href="">HAKKIMIZDA</a></li>
+                    <li id="erkek">
+                        <a href="#">ERKEK <span class="coret">❯</span></a>
+                        <ul class="sub-menu">
+                            <li><a href="">T-SHIRT</a></li>
+                            <li><a href="">SWEATSHIRT</a></li>
+                            <li><a href="">HOODIE</a></li>
+                            <li><a href="">EŞOFMAN</a></li>
+                        </ul>
+                    </li>
+                    <li id="kadin">
+                        <a href="#">KADIN <span class="coret">❯</span></a>
+                        <ul class="sub-menu">
+                            <li><a href="">T-SHIRT</a></li>
+                            <li><a href="">SWEATSHIRT</a></li>
+                            <li><a href="">EŞOFMAN TAKIMI</a></li>
+                            <li><a href="">EŞOFMAN ALTI</a></li>
+                            <li><a href="">TAYT</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">İLETİŞİM</a></li>
+                </ul>
+                <div class="user-nav">
+                    <a href=""><img src="shopping-cart.png" width="32px" alt=""></a><a href=""><img src="user.png" width="32px" alt=""></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+   <script>
+        const navigation = document.querySelector('.navigation');
+        const sideMenu = document.querySelector('.side-menu')
+        const closeIcon = document.getElementById('close-icon')
+        function toggleMenuIcon() {
+          // navigation.classList.toggle('active')
+          sideMenu.classList.add('w-500')
+        }
+        function closeMenu() {
+            sideMenu.classList.remove('w-500')
+        }
+        navigation.addEventListener('click', toggleMenuIcon);
+        closeIcon.addEventListener('click', closeMenu);
+   </script>
+   <script>
+        var kadin = document.getElementById('kadin')
+        var erkek = document.getElementById('erkek')
+        var caret = document.querySelectorAll('.coret')
+        var subMenu = document.querySelectorAll('.sub-menu')
+        erkek.addEventListener('click', () => {
+            caret[0].classList.toggle('rotate')
+            subMenu[0].classList.toggle('sub-menu-active')
+        })
+        kadin.addEventListener('click', () => {
+            caret[1].classList.toggle('rotate')
+            subMenu[1].classList.toggle('sub-menu-active')
+        })
+   </script>
+</body>
+</html>
